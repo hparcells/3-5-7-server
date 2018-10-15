@@ -7,13 +7,11 @@ var users = [];
 
 io.on("connection", function(client) {
     client.on("newPlayer", function(data) {
-        if(users.length < 2) {
-            users.push(data);
+        users.push(data);
 
-            console.log(`${data} joined!`);
-    
-            io.emit("playerUpdate", users);
-        }
+        console.log(`${data} joined!`);
+
+        io.emit("playerUpdate", users);
     });
 
     client.on("playerDisconnect", function(data) {
@@ -24,7 +22,7 @@ io.on("connection", function(client) {
     });
 
     client.on("updatedMark", function(data) {
-        client.broadcast.emit("updatedMark", data);
+        io.emit("updatedMark", data);
     });
 
     client.on("switchTurns", function() {
