@@ -6,24 +6,29 @@ var io = require("socket.io")(server);
 var users = [];
 
 io.on("connection", function(client) {
-    client.on("join", function(data) {
+    client.on("newPlayer", function(data) {
         if(users.length < 2) {
             users.push(data);
-        }
 
-        console.log(`${data} joined!`); 
-        
-        client.emit("join", users);
+            console.log(`${data} joined!`);
+    
+            io.emit("playerUpdate", users);
+        }
+    });
+
+    client.on("playerDisconnect", function(data) {
+        var position = users.indexOf(data);
+        users.splice(position, 1);
+
+        io.emit("playerUpdate", users);
     });
 
     client.on("updatedMark", function(data) {
         client.broadcast.emit("updatedMark", data);
     });
 
-    client.on("disconnect", function() {
-        console.log("Someone Disconnected!");
+    client.on("switchTurns", function() {
 
-        // TODO: Remove from users.
     });
 });
 
