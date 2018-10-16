@@ -22,6 +22,8 @@ var marks = [
     {isMarked: false},
 ];
 
+var player = 1;
+
 io.on("connection", function(client) {
     client.on("newPlayer", function(data) {
         users.push(data);
@@ -35,6 +37,8 @@ io.on("connection", function(client) {
         var position = users.indexOf(data);
         users.splice(position, 1);
 
+        console.log(`${data} left!`);
+
         io.emit("playerUpdate", users);
     });
 
@@ -42,14 +46,14 @@ io.on("connection", function(client) {
         io.emit("markUpdate", className, idName);
     });
 
-    client.on("updatedMarkList", function(data) {
-        marks = data;
+    client.on("switchTurns", function(data) {
+        if(data === 1) {
+            player = 2;
+        }else {
+            player = 1;
+        }
 
-        io.emit("updatedMarks", marks);
-    });
-
-    client.on("switchTurns", function() {
-
+        io.emit("turnUpdate", player);
     });
 });
 
