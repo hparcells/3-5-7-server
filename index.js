@@ -4,24 +4,6 @@ var server = require("http").createServer();
 var io = require("socket.io")(server);
 
 var users = [];
-var marks = [
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-    {isMarked: false},
-];
-
 var player = 1;
 
 io.on("connection", function(client) {
