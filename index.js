@@ -28,6 +28,8 @@ io.on("connection", function(client) {
 
     client.on("updatedMark", function(className, idName) {
         io.emit("markUpdate", className, idName);
+
+        console.log(`Updated Mark: ${idName}.`)
     });
 
     client.on("switchTurns", function(data) {
@@ -38,6 +40,8 @@ io.on("connection", function(client) {
         }
 
         io.emit("turnUpdate", player);
+
+        console.log(`Switching to Player ${player}.`)
     });
 
     client.on("reset", function(data) {
