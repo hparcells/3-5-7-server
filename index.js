@@ -44,7 +44,7 @@ io.on("connection", function(client) {
         console.log(`Switching to Player ${player}.`)
     });
 
-    client.on("reset", function(data) {
+    client.on("reset", function() {
         users = [];
         player = 1;
 
