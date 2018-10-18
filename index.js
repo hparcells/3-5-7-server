@@ -37,6 +37,13 @@ io.on("connection", function(client) {
 
         io.emit("turnUpdate", player);
     });
+
+    client.on("reset", function(data) {
+        users = [];
+        player = 1;
+
+        console.log("Reset!");
+    });
 });
 
 server.listen(port);
