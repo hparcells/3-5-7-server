@@ -6,6 +6,8 @@ var io = require("socket.io")(server);
 var users = [];
 var player = 1;
 
+console.log("Starting Server...");
+
 io.on("connection", function(client) {
     client.on("newPlayer", function(data) {
         users.push(data);
@@ -47,3 +49,22 @@ io.on("connection", function(client) {
 });
 
 server.listen(port);
+
+var os = require("os");
+var ifaces = os.networkInterfaces();
+console.log('Listening On: ');
+Object.keys(ifaces).forEach(function (ifname) {
+    var alias = 0;
+
+    ifaces[ifname].forEach(function (iface) {
+        if ('IPv4' !== iface.family || iface.internal !== false) {
+            // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
+            return;
+        }
+
+        // this interface has only one ipv4 adress
+        console.log("http://" + iface.address + ":" + port +"/");
+
+        ++alias;
+    });
+});
