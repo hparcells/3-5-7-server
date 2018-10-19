@@ -26,10 +26,10 @@ io.on("connection", function(client) {
         io.emit("playerUpdate", users);
     });
 
-    client.on("updatedMark", function(className, idName) {
-        io.emit("markUpdate", className, idName);
+    client.on("updatedMark", function(row, mark) {
+        io.emit("markUpdate", row, mark);
 
-        console.log(`Updated Mark: ${idName}.`)
+        console.log(`Updated Mark: ${mark}.`)
     });
 
     client.on("switchTurns", function(data) {
