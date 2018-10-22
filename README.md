@@ -6,6 +6,7 @@
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/hparcells/3-5-7-server.svg)](https://github.com/hparcells/3-5-7-server)
 [![GitHub](https://img.shields.io/github/license/hparcells/3-5-7-server.svg)](https://github.com/hparcells/3-5-7-server)
 
+[![dependencies Status](https://david-dm.org/hparcells/3-5-7-server/status.svg)](https://david-dm.org/hparcells/3-5-7-server)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bb1df484d95d44c596b47ca694918ce0)](https://www.codacy.com/app/hparcells/3-5-7-server?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hparcells/3-5-7-server&amp;utm_campaign=Badge_Grade)
 
 The server to 3-5-7.
