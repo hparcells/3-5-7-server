@@ -1,6 +1,6 @@
 # 3-5-7-server
 ![status](https://img.shields.io/badge/status-complete-brightgreen.svg)
-![maintained](https://img.shields.io/badge/maintained-yes-brightgreen.svg)
+![maintained](https://img.shields.io/badge/maintained-no%20(as%20of%202018)-red.svg)
 
 [![GitHub issues](https://img.shields.io/github/issues/hparcells/3-5-7-server.svg)](https://github.com/hparcells/3-5-7-server)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/hparcells/3-5-7-server.svg)](https://github.com/hparcells/3-5-7-server)
